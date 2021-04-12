@@ -1,5 +1,8 @@
 #include <iostream>
 #include <unistd.h> //delay
+
+#include "low_level.h"
+#include "tests.h"
 /*-------------------------var_arr--------------------------*/
 
 const int main_temp_output[]{ 0x00, 0x01, 0x02, 0x00, 0x04, 0x30, 0x08, 0x20 };
@@ -16,28 +19,31 @@ int main(void){
     uint8_t main_timer = 0;
     uint8_t main_output = 0;
     uint8_t main_statement = 0;
+    uint8_t command_code = 0;
     /*-----------------------------------------*/
 
     while(true){
         main_output = main_temp_output[main_pc];
         
         if(main_output & 0x01) { /*init, state machine 1*/ }
-        if(main_output & 0x02) { /*ROM command*/ }
-        if(main_output & 0x04) { /*read volatile memory*/ }
-        if(main_output & 0x08) { /*init temp conversion*/ }
+        if(main_output & 0x02) { command_code = 0xCC; }
+        if(main_output & 0x04) { command_code = 0xBE; }
+        if(main_output & 0x08) { command_code = 0x44; }
         if(main_output & 0x10) { main_timer = 10; }
-        if(main_output & 0x20) { conversion_flag = conversion_flag ^ 0xFF; }
+        if(main_output & 0x20) { conversion_flag ^= 0xFF; }
 
         switch(main_temp_statement[main_pc]){
             case 0: main_statement = 0; break;
             case 1: main_statement = !main_timer; break;
-            case 2: /*presence*/ break;
-            case 3: /*CMD END*/ break;
-            case 4: /*READ SUCCESS*/ break;
+            case 2: print_init_status(main_statement = init_temp_sensor_communication()); break;
+            case 3: print_rom_cmd_status(main_statement = send_rom_cmd_to_temp_sensor(command_code)); break;
+            case 4: print_volatile_cmd_status(main_statement = send_volatile_memory_cmd(command_code)); break;
             case 5: main_statement = conversion_flag; break;
-            case 6: /*conversion done*/ break;
+            case 6: print_conversion_status(main_statement = send_volatile_memory_cmd(command_code)); break;
         }
 
+        std::cout << (main_pc + '0') - 48 << std::endl;
+        
         if(main_statement){ ++main_pc; }
         else { main_pc = main_temp_address[main_pc]; }
 

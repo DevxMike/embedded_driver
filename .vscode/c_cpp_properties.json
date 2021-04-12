@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "AVR",
+            "intelliSenseMode": "${default}",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "compilerPath": "/bin/avr-g++",
+            "includePath": [
+                "/lib/avr/include/**"
+            ],
+            "compilerArgs": [
+                "-mmcu=atmega8",
+                "-DF_CPU=16000000UL"
+            ]
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,373 @@
+
+.vscode/avr.build/output.elf:     file format elf32-avr
+
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+__vectors():
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	2c c0       	rjmp	.+88     	; 0x5c <__bad_interrupt>
+   4:	2b c0       	rjmp	.+86     	; 0x5c <__bad_interrupt>
+   6:	2b c0       	rjmp	.+86     	; 0x5e <__vector_3>
+   8:	29 c0       	rjmp	.+82     	; 0x5c <__bad_interrupt>
+   a:	28 c0       	rjmp	.+80     	; 0x5c <__bad_interrupt>
+   c:	83 c0       	rjmp	.+262    	; 0x114 <__vector_6>
+   e:	26 c0       	rjmp	.+76     	; 0x5c <__bad_interrupt>
+  10:	25 c0       	rjmp	.+74     	; 0x5c <__bad_interrupt>
+  12:	24 c0       	rjmp	.+72     	; 0x5c <__bad_interrupt>
+  14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
+  16:	22 c0       	rjmp	.+68     	; 0x5c <__bad_interrupt>
+  18:	21 c0       	rjmp	.+66     	; 0x5c <__bad_interrupt>
+  1a:	20 c0       	rjmp	.+64     	; 0x5c <__bad_interrupt>
+  1c:	1f c0       	rjmp	.+62     	; 0x5c <__bad_interrupt>
+  1e:	1e c0       	rjmp	.+60     	; 0x5c <__bad_interrupt>
+  20:	1d c0       	rjmp	.+58     	; 0x5c <__bad_interrupt>
+  22:	1c c0       	rjmp	.+56     	; 0x5c <__bad_interrupt>
+  24:	1b c0       	rjmp	.+54     	; 0x5c <__bad_interrupt>
+
+00000026 <__ctors_end>:
+__trampolines_start():
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_copy_data>:
+__do_copy_data():
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	e8 e9       	ldi	r30, 0x98	; 152
+  3a:	f1 e0       	ldi	r31, 0x01	; 1
+  3c:	02 c0       	rjmp	.+4      	; 0x42 <__SREG__+0x3>
+  3e:	05 90       	lpm	r0, Z+
+  40:	0d 92       	st	X+, r0
+  42:	a4 36       	cpi	r26, 0x64	; 100
+  44:	b1 07       	cpc	r27, r17
+  46:	d9 f7       	brne	.-10     	; 0x3e <__SP_H__>
+
+00000048 <__do_clear_bss>:
+__do_clear_bss():
+  48:	20 e0       	ldi	r18, 0x00	; 0
+  4a:	a4 e6       	ldi	r26, 0x64	; 100
+  4c:	b0 e0       	ldi	r27, 0x00	; 0
+  4e:	01 c0       	rjmp	.+2      	; 0x52 <.do_clear_bss_start>
+
+00000050 <.do_clear_bss_loop>:
+  50:	1d 92       	st	X+, r1
+
+00000052 <.do_clear_bss_start>:
+  52:	a6 36       	cpi	r26, 0x66	; 102
+  54:	b2 07       	cpc	r27, r18
+  56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
+.do_clear_bss_start():
+  58:	6c d0       	rcall	.+216    	; 0x132 <main>
+  5a:	9c c0       	rjmp	.+312    	; 0x194 <_exit>
+
+0000005c <__bad_interrupt>:
+__vector_1():
+  5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
+
+0000005e <__vector_3>:
+__vector_3():
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:33
+    }
+}
+ISR(TIMER1_COMPA_vect){
+    cycle = 1;
+}
+ISR(TIMER2_COMP_vect){
+  5e:	1f 92       	push	r1
+  60:	0f 92       	push	r0
+  62:	0f b6       	in	r0, 0x3f	; 63
+  64:	0f 92       	push	r0
+  66:	11 24       	eor	r1, r1
+  68:	2f 93       	push	r18
+  6a:	3f 93       	push	r19
+  6c:	4f 93       	push	r20
+  6e:	5f 93       	push	r21
+  70:	6f 93       	push	r22
+  72:	7f 93       	push	r23
+  74:	8f 93       	push	r24
+  76:	9f 93       	push	r25
+  78:	af 93       	push	r26
+  7a:	bf 93       	push	r27
+  7c:	ef 93       	push	r30
+  7e:	ff 93       	push	r31
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:34
+    PORTD &= ~(1 << dig);
+  80:	30 91 65 00 	lds	r19, 0x0065	; 0x800065 <dig>
+  84:	22 b3       	in	r18, 0x12	; 18
+  86:	81 e0       	ldi	r24, 0x01	; 1
+  88:	90 e0       	ldi	r25, 0x00	; 0
+  8a:	02 c0       	rjmp	.+4      	; 0x90 <__vector_3+0x32>
+  8c:	88 0f       	add	r24, r24
+  8e:	99 1f       	adc	r25, r25
+  90:	3a 95       	dec	r19
+  92:	e2 f7       	brpl	.-8      	; 0x8c <__vector_3+0x2e>
+  94:	80 95       	com	r24
+  96:	90 95       	com	r25
+  98:	82 23       	and	r24, r18
+  9a:	82 bb       	out	0x12, r24	; 18
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:35
+    if(++dig > 3) {
+  9c:	80 91 65 00 	lds	r24, 0x0065	; 0x800065 <dig>
+  a0:	8f 5f       	subi	r24, 0xFF	; 255
+  a2:	80 93 65 00 	sts	0x0065, r24	; 0x800065 <dig>
+  a6:	84 30       	cpi	r24, 0x04	; 4
+  a8:	10 f0       	brcs	.+4      	; 0xae <__vector_3+0x50>
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:36
+        dig = 0;
+  aa:	10 92 65 00 	sts	0x0065, r1	; 0x800065 <dig>
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:39
+    }
+    set_register_outputs(
+        eeprom_read_byte(&LED_DISP_VALS[values[dig]]) | (dig == 0? 0x01 : 0x00)
+  ae:	e0 91 65 00 	lds	r30, 0x0065	; 0x800065 <dig>
+  b2:	f0 e0       	ldi	r31, 0x00	; 0
+  b4:	e0 5a       	subi	r30, 0xA0	; 160
+  b6:	ff 4f       	sbci	r31, 0xFF	; 255
+  b8:	80 81       	ld	r24, Z
+  ba:	90 e0       	ldi	r25, 0x00	; 0
+  bc:	80 50       	subi	r24, 0x00	; 0
+  be:	90 40       	sbci	r25, 0x00	; 0
+  c0:	61 d0       	rcall	.+194    	; 0x184 <eeprom_read_byte>
+  c2:	20 91 65 00 	lds	r18, 0x0065	; 0x800065 <dig>
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:38
+ISR(TIMER2_COMP_vect){
+    PORTD &= ~(1 << dig);
+    if(++dig > 3) {
+        dig = 0;
+    }
+    set_register_outputs(
+  c6:	91 e0       	ldi	r25, 0x01	; 1
+  c8:	21 11       	cpse	r18, r1
+  ca:	90 e0       	ldi	r25, 0x00	; 0
+  cc:	89 2b       	or	r24, r25
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/spi.c:19
+void transfer_byte_to_register(uint8_t data){
+    SPDR = data;
+    while(!(SPSR & (1 << SPIF)));
+}
+void set_register_outputs(uint8_t data){
+    PORTB &= ~(1 << LATCH);
+  ce:	c1 98       	cbi	0x18, 1	; 24
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/spi.c:20
+    PORTB |= (1 << OUTPUT_ENABLE);
+  d0:	c2 9a       	sbi	0x18, 2	; 24
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/spi.c:15
+void init_spi(void){
+    DDRB |= (1 << MOSI) | (1 << OUTPUT_ENABLE) | (1 << LATCH) | (1 << CLOCK);
+    SPCR |= (1 << MSTR) | (1 << SPE) | (1 << DORD) | (1 << SPR1);
+}
+void transfer_byte_to_register(uint8_t data){
+    SPDR = data;
+  d2:	8f b9       	out	0x0f, r24	; 15
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/spi.c:16
+    while(!(SPSR & (1 << SPIF)));
+  d4:	77 9b       	sbis	0x0e, 7	; 14
+  d6:	fe cf       	rjmp	.-4      	; 0xd4 <__vector_3+0x76>
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/spi.c:22
+}
+void set_register_outputs(uint8_t data){
+    PORTB &= ~(1 << LATCH);
+    PORTB |= (1 << OUTPUT_ENABLE);
+    transfer_byte_to_register(data);
+    PORTB &= ~(1 << OUTPUT_ENABLE);
+  d8:	c2 98       	cbi	0x18, 2	; 24
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/spi.c:23
+    PORTB |= (1 << LATCH);
+  da:	c1 9a       	sbi	0x18, 1	; 24
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:41
+        eeprom_read_byte(&LED_DISP_VALS[values[dig]]) | (dig == 0? 0x01 : 0x00)
+    );
+    PORTD |= (1 << dig);
+  dc:	30 91 65 00 	lds	r19, 0x0065	; 0x800065 <dig>
+  e0:	22 b3       	in	r18, 0x12	; 18
+  e2:	81 e0       	ldi	r24, 0x01	; 1
+  e4:	90 e0       	ldi	r25, 0x00	; 0
+  e6:	01 c0       	rjmp	.+2      	; 0xea <__vector_3+0x8c>
+  e8:	88 0f       	add	r24, r24
+  ea:	3a 95       	dec	r19
+  ec:	ea f7       	brpl	.-6      	; 0xe8 <__vector_3+0x8a>
+  ee:	82 2b       	or	r24, r18
+  f0:	82 bb       	out	0x12, r24	; 18
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:42
+  f2:	ff 91       	pop	r31
+  f4:	ef 91       	pop	r30
+  f6:	bf 91       	pop	r27
+  f8:	af 91       	pop	r26
+  fa:	9f 91       	pop	r25
+  fc:	8f 91       	pop	r24
+  fe:	7f 91       	pop	r23
+ 100:	6f 91       	pop	r22
+ 102:	5f 91       	pop	r21
+ 104:	4f 91       	pop	r20
+ 106:	3f 91       	pop	r19
+ 108:	2f 91       	pop	r18
+ 10a:	0f 90       	pop	r0
+ 10c:	0f be       	out	0x3f, r0	; 63
+ 10e:	0f 90       	pop	r0
+ 110:	1f 90       	pop	r1
+ 112:	18 95       	reti
+
+00000114 <__vector_6>:
+__vector_6():
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:30
+    while(1){
+        cycle = 0;
+        while(!cycle);
+    }
+}
+ISR(TIMER1_COMPA_vect){
+ 114:	1f 92       	push	r1
+ 116:	0f 92       	push	r0
+ 118:	0f b6       	in	r0, 0x3f	; 63
+ 11a:	0f 92       	push	r0
+ 11c:	11 24       	eor	r1, r1
+ 11e:	8f 93       	push	r24
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:31
+    cycle = 1;
+ 120:	81 e0       	ldi	r24, 0x01	; 1
+ 122:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__data_end>
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:32
+}
+ 126:	8f 91       	pop	r24
+ 128:	0f 90       	pop	r0
+ 12a:	0f be       	out	0x3f, r0	; 63
+ 12c:	0f 90       	pop	r0
+ 12e:	1f 90       	pop	r1
+ 130:	18 95       	reti
+
+00000132 <main>:
+main():
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:17
+
+volatile uint8_t values[4] = { 1, 2, 3, 4 };
+
+int main(void){
+
+    DDRD = 0x0F;
+ 132:	8f e0       	ldi	r24, 0x0F	; 15
+ 134:	81 bb       	out	0x11, r24	; 17
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:18
+    PORTD = 0x0F;
+ 136:	82 bb       	out	0x12, r24	; 18
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/timers.c:4
+#include "timers.h"
+
+void write_to_16bit_timer_OCR(uint16_t OCR){
+    OCR1AH = (uint8_t)(((OCR & 0xFF00) >> 8));
+ 138:	8e e3       	ldi	r24, 0x3E	; 62
+ 13a:	8b bd       	out	0x2b, r24	; 43
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/timers.c:5
+    OCR1AL = (uint8_t)((OCR & 0x00FF));
+ 13c:	8f e7       	ldi	r24, 0x7F	; 127
+ 13e:	8a bd       	out	0x2a, r24	; 42
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/timers.c:14
+        case 1: TCCR1B |= 0x01; break;
+    }
+}
+void set_16bit_timer_mode(uint8_t mode){
+    switch(mode){
+        case CTC: TCCR1B |= (1 << WGM12); TIMSK |= 0x10; break;
+ 140:	8e b5       	in	r24, 0x2e	; 46
+ 142:	88 60       	ori	r24, 0x08	; 8
+ 144:	8e bd       	out	0x2e, r24	; 46
+ 146:	89 b7       	in	r24, 0x39	; 57
+ 148:	80 61       	ori	r24, 0x10	; 16
+ 14a:	89 bf       	out	0x39, r24	; 57
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/timers.c:9
+    OCR1AH = (uint8_t)(((OCR & 0xFF00) >> 8));
+    OCR1AL = (uint8_t)((OCR & 0x00FF));
+}
+void set_16bit_timer_prescaler(uint16_t prescaler){
+    switch(prescaler){
+        case 1: TCCR1B |= 0x01; break;
+ 14c:	8e b5       	in	r24, 0x2e	; 46
+ 14e:	81 60       	ori	r24, 0x01	; 1
+ 150:	8e bd       	out	0x2e, r24	; 46
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/timers.c:25
+    set_16bit_timer_mode(mode);
+    set_16bit_timer_prescaler(prescaler);
+}
+
+void write_to_8bit_timer_OCR(uint8_t OCR){
+    OCR2 = OCR;
+ 152:	8e e4       	ldi	r24, 0x4E	; 78
+ 154:	83 bd       	out	0x23, r24	; 35
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/timers.c:32
+void set_8bit_timer_prescaler(uint8_t prescaler){
+    TCCR2 |= prescaler;
+}
+void set_8bit_timer_mode(uint8_t mode){
+    switch(mode){
+        case CTC: TCCR2 |= (1 << WGM21); TIMSK |= 0x80; break;
+ 156:	85 b5       	in	r24, 0x25	; 37
+ 158:	88 60       	ori	r24, 0x08	; 8
+ 15a:	85 bd       	out	0x25, r24	; 37
+ 15c:	89 b7       	in	r24, 0x39	; 57
+ 15e:	80 68       	ori	r24, 0x80	; 128
+ 160:	89 bf       	out	0x39, r24	; 57
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/timers.c:28
+
+void write_to_8bit_timer_OCR(uint8_t OCR){
+    OCR2 = OCR;
+}
+void set_8bit_timer_prescaler(uint8_t prescaler){
+    TCCR2 |= prescaler;
+ 162:	85 b5       	in	r24, 0x25	; 37
+ 164:	83 60       	ori	r24, 0x03	; 3
+ 166:	85 bd       	out	0x25, r24	; 37
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/spi.c:11
+#define CLOCK 5
+#define LATCH 1
+
+
+void init_spi(void){
+    DDRB |= (1 << MOSI) | (1 << OUTPUT_ENABLE) | (1 << LATCH) | (1 << CLOCK);
+ 168:	87 b3       	in	r24, 0x17	; 23
+ 16a:	8e 62       	ori	r24, 0x2E	; 46
+ 16c:	87 bb       	out	0x17, r24	; 23
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/spi.c:12
+    SPCR |= (1 << MSTR) | (1 << SPE) | (1 << DORD) | (1 << SPR1);
+ 16e:	8d b1       	in	r24, 0x0d	; 13
+ 170:	82 67       	ori	r24, 0x72	; 114
+ 172:	8d b9       	out	0x0d, r24	; 13
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:23
+    
+    init_16bit_timer(0x01, 0x3E7F, CTC);
+    init_8bit_timer(0x03, 0x4E, CTC);
+    init_spi();
+    sei();
+ 174:	78 94       	sei
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:26
+
+    while(1){
+        cycle = 0;
+ 176:	10 92 64 00 	sts	0x0064, r1	; 0x800064 <__data_end>
+/media/michael/HDD/src/avr_nauka/c++/hello_cpp/main.c:27
+        while(!cycle);
+ 17a:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__data_end>
+ 17e:	88 23       	and	r24, r24
+ 180:	e1 f3       	breq	.-8      	; 0x17a <main+0x48>
+ 182:	f9 cf       	rjmp	.-14     	; 0x176 <main+0x44>
+
+00000184 <eeprom_read_byte>:
+ 184:	e1 99       	sbic	0x1c, 1	; 28
+ 186:	fe cf       	rjmp	.-4      	; 0x184 <eeprom_read_byte>
+ 188:	9f bb       	out	0x1f, r25	; 31
+ 18a:	8e bb       	out	0x1e, r24	; 30
+ 18c:	e0 9a       	sbi	0x1c, 0	; 28
+ 18e:	99 27       	eor	r25, r25
+ 190:	8d b3       	in	r24, 0x1d	; 29
+ 192:	08 95       	ret
+
+00000194 <_exit>:
+ 194:	f8 94       	cli
+
+00000196 <__stop_program>:
+ 196:	ff cf       	rjmp	.-2      	; 0x196 <__stop_program>

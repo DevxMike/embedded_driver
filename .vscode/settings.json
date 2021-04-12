@@ -1,0 +1,11 @@
+{
+    "AVR.source.compiler": "/bin/avr-g++",
+    "AVR.programmer.tool": "/bin/avrdude",
+    "AVR.programmer.definitions": "/etc/avrdude.conf",
+    "AVR.source.libraries": [
+        "/lib/avr/include"
+    ],
+    "AVR.device.type": "atmega8",
+    "AVR.device.frequency": 16000000,
+    "AVR.programmer.type": "usbasp-clone"
+}

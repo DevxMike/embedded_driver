@@ -7,5 +7,9 @@
     ],
     "AVR.device.type": "atmega8",
     "AVR.device.frequency": 16000000,
-    "AVR.programmer.type": "usbasp-clone"
+    "AVR.programmer.type": "usbasp-clone",
+    "files.associations": {
+        "interrupt.h": "c",
+        "temperature.h": "c"
+    }
 }

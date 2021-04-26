@@ -73,7 +73,7 @@ __vector_1():
 
 0000005e <__vector_3>:
 __vector_3():
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:68
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:70
     }
 }
 ISR(TIMER1_COMPA_vect){
@@ -97,7 +97,7 @@ ISR(TIMER2_COMP_vect){
   7a:	bf 93       	push	r27
   7c:	ef 93       	push	r30
   7e:	ff 93       	push	r31
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:69
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:71
     PORTD &= ~(1 << dig);
   80:	30 91 65 00 	lds	r19, 0x0065	; 0x800065 <dig>
   84:	22 b3       	in	r18, 0x12	; 18
@@ -112,17 +112,17 @@ ISR(TIMER2_COMP_vect){
   96:	90 95       	com	r25
   98:	82 23       	and	r24, r18
   9a:	82 bb       	out	0x12, r24	; 18
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:70
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:72
     if(++dig > 3) {
   9c:	80 91 65 00 	lds	r24, 0x0065	; 0x800065 <dig>
   a0:	8f 5f       	subi	r24, 0xFF	; 255
   a2:	80 93 65 00 	sts	0x0065, r24	; 0x800065 <dig>
   a6:	84 30       	cpi	r24, 0x04	; 4
   a8:	10 f0       	brcs	.+4      	; 0xae <__vector_3+0x50>
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:71
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:73
         dig = 0;
   aa:	10 92 65 00 	sts	0x0065, r1	; 0x800065 <dig>
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:74
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:76
     }
     set_register_outputs(
         eeprom_read_byte(&LED_DISP_VALS[values[dig]]) | (dig == 2? 0x01 : 0x00)
@@ -136,7 +136,7 @@ ISR(TIMER2_COMP_vect){
   be:	90 40       	sbci	r25, 0x00	; 0
   c0:	62 d0       	rcall	.+196    	; 0x186 <eeprom_read_byte>
   c2:	20 91 65 00 	lds	r18, 0x0065	; 0x800065 <dig>
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:73
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:75
 ISR(TIMER2_COMP_vect){
     PORTD &= ~(1 << dig);
     if(++dig > 3) {
@@ -182,7 +182,7 @@ void set_register_outputs(uint8_t data){
 /media/michael/HDD/src/avr_nauka/c++/code/spi.c:23
     PORTB |= (1 << LATCH);
   dc:	c1 9a       	sbi	0x18, 1	; 24
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:76
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:78
         eeprom_read_byte(&LED_DISP_VALS[values[dig]]) | (dig == 2? 0x01 : 0x00)
     );
     PORTD |= (1 << dig);
@@ -196,7 +196,7 @@ void set_register_outputs(uint8_t data){
   ee:	ea f7       	brpl	.-6      	; 0xea <__vector_3+0x8c>
   f0:	82 2b       	or	r24, r18
   f2:	82 bb       	out	0x12, r24	; 18
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:77
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:79
   f4:	ff 91       	pop	r31
   f6:	ef 91       	pop	r30
   f8:	bf 91       	pop	r27
@@ -217,7 +217,7 @@ void set_register_outputs(uint8_t data){
 
 00000116 <__vector_6>:
 __vector_6():
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:65
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:67
     
         cycle = 0;
         while(!cycle);
@@ -230,11 +230,11 @@ ISR(TIMER1_COMPA_vect){
  11c:	0f 92       	push	r0
  11e:	11 24       	eor	r1, r1
  120:	8f 93       	push	r24
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:66
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:68
     cycle = 1;
  122:	81 e0       	ldi	r24, 0x01	; 1
  124:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__data_end>
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:67
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:69
 }
  128:	8f 91       	pop	r24
  12a:	0f 90       	pop	r0
@@ -245,7 +245,7 @@ ISR(TIMER1_COMPA_vect){
 
 00000134 <main>:
 main():
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:23
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:25
 volatile uint8_t values[4] = { 10, 2, 3, 5 };
 
 int main(void){
@@ -254,7 +254,7 @@ int main(void){
     DDRD = 0x0F;
  134:	8f e0       	ldi	r24, 0x0F	; 15
  136:	81 bb       	out	0x11, r24	; 17
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:24
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:26
     PORTD = 0x0F;
  138:	82 bb       	out	0x12, r24	; 18
 /media/michael/HDD/src/avr_nauka/c++/code/timers.c:4
@@ -338,7 +338,7 @@ void init_spi(void){
  170:	8d b1       	in	r24, 0x0d	; 13
  172:	82 67       	ori	r24, 0x72	; 114
  174:	8d b9       	out	0x0d, r24	; 13
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:30
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:32
     
     init_temperature_sensor(&temperature_sensor);
     init_16bit_timer(0x01, 0x3E7F, CTC);
@@ -346,7 +346,7 @@ void init_spi(void){
     init_spi();
     sei();
  176:	78 94       	sei
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:61
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:63
             temperature_sensor.pc = eeprom_read_byte(&temperature_address[temperature_sensor.pc]); 
         }
 
@@ -354,7 +354,7 @@ void init_spi(void){
     
         cycle = 0;
  178:	10 92 64 00 	sts	0x0064, r1	; 0x800064 <__data_end>
-/media/michael/HDD/src/avr_nauka/c++/code/main.c:62
+/media/michael/HDD/src/avr_nauka/c++/code/main.c:64
         while(!cycle);
  17c:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <__data_end>
  180:	88 23       	and	r24, r24

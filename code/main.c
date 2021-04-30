@@ -3,7 +3,7 @@
 #include <avr/eeprom.h>
 #include "spi.h"
 #include "main.h"
-#include "temperature_api.h"
+#include "temperature.h"
 
 
 volatile uint8_t cycle = 0; 

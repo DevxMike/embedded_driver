@@ -97,5 +97,6 @@ uint8_t read_one_byte_from_temp_sensor(void){
         byte |= read_one_bit_from_temp_sensor() << i;
     }
 
-    return 0;
+    SREG = sreg;
+    return byte;
 }

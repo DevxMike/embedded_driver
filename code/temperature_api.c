@@ -16,7 +16,7 @@ uint8_t read_temperature(void){
     if(!init_temperature_sensor_communication()){
         write_one_byte_to_temp_sensor(SKIP_ROM);
         for(uint8_t i = 0; i < 2; ++i){
-            read_one_byte_from_temp_sensor(;)
+            read_one_byte_from_temp_sensor();
         }
     }
     else{
